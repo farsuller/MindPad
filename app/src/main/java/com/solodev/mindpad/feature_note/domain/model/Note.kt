@@ -16,3 +16,6 @@ data class Note(
         val noteColors = listOf(secondaryContainerLight, onSecondaryContainerLight, tertiaryLight, tertiaryContainerLight, onTertiaryContainerLight)
     }
 }
+
+
+class InvalidNoteException(message: String): Exception(message)

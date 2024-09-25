@@ -1,6 +1,7 @@
 package com.solodev.mindpad.feature_note.domain.usecase
 
 data class NotesUseCases (
-    val getNotes: GetNotesUseCase,
-    val deleteNote: DeleteNoteUseCase,
+    val getNotes: GetNotes,
+    val deleteNote: DeleteNote,
+    val addNote: AddNote,
 )
