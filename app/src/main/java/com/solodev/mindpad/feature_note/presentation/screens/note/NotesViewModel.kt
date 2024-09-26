@@ -1,4 +1,4 @@
-package com.solodev.mindpad.feature_note.presentation.screen.note
+package com.solodev.mindpad.feature_note.presentation.screens.note
 
 import androidx.compose.runtime.State
 import androidx.compose.runtime.mutableStateOf
@@ -8,6 +8,8 @@ import com.solodev.mindpad.feature_note.domain.model.Note
 import com.solodev.mindpad.feature_note.domain.usecase.NotesUseCases
 import com.solodev.mindpad.feature_note.domain.util.NoteOrder
 import com.solodev.mindpad.feature_note.domain.util.OrderType
+import com.solodev.mindpad.feature_note.presentation.screens.note.NotesEvent
+import com.solodev.mindpad.feature_note.presentation.screens.note.NotesState
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.flow.launchIn

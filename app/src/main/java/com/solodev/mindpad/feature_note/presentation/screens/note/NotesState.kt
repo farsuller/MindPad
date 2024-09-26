@@ -1,4 +1,4 @@
-package com.solodev.mindpad.feature_note.presentation.screen.note
+package com.solodev.mindpad.feature_note.presentation.screens.note
 
 import com.solodev.mindpad.feature_note.domain.model.Note
 import com.solodev.mindpad.feature_note.domain.util.NoteOrder

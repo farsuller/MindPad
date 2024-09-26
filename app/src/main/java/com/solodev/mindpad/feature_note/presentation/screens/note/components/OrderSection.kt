@@ -1,6 +1,5 @@
-package com.solodev.mindpad.feature_note.presentation.screen.note.components
+package com.solodev.mindpad.feature_note.presentation.screens.note.components
 
-import android.provider.ContactsContract.CommonDataKinds.Note
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -37,13 +36,13 @@ fun OrderSection(
             )
             DefaultChipButton(
                 text = "Date",
-                isSelected = noteOrder is NoteOrder.Title,
-                onSelectionChanged = { onOrderChange(NoteOrder.Title(noteOrder.orderType)) }
+                isSelected = noteOrder is NoteOrder.Date,
+                onSelectionChanged = { onOrderChange(NoteOrder.Date(noteOrder.orderType)) }
             )
             DefaultChipButton(
                 text = "Color",
-                isSelected = noteOrder is NoteOrder.Title,
-                onSelectionChanged = { onOrderChange(NoteOrder.Title(noteOrder.orderType)) }
+                isSelected = noteOrder is NoteOrder.Color,
+                onSelectionChanged = { onOrderChange(NoteOrder.Color(noteOrder.orderType)) }
             )
         }
 

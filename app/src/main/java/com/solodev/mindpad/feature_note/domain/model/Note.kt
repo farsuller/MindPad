@@ -1,5 +1,6 @@
 package com.solodev.mindpad.feature_note.domain.model
 
+import androidx.compose.ui.graphics.Color
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 import com.solodev.mindpad.ui.theme.*
@@ -13,7 +14,12 @@ data class Note(
     @PrimaryKey val id : Int? = null
 ){
     companion object {
-        val noteColors = listOf(secondaryContainerLight, onSecondaryContainerLight, tertiaryLight, tertiaryContainerLight, onTertiaryContainerLight)
+        val noteColors = listOf(
+            Color(0xFFDAE2F9),
+            Color(0xFF92AFE3),
+            Color(0xFFFFB4AB),
+            Color(0xFFFAD8FD),
+            Color(0xFFFFDAD6))
     }
 }
 

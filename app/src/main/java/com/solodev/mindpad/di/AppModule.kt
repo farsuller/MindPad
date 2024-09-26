@@ -7,6 +7,7 @@ import com.solodev.mindpad.feature_note.data.repository.NoteRepositoryImpl
 import com.solodev.mindpad.feature_note.domain.repository.NoteRepository
 import com.solodev.mindpad.feature_note.domain.usecase.AddNote
 import com.solodev.mindpad.feature_note.domain.usecase.DeleteNote
+import com.solodev.mindpad.feature_note.domain.usecase.GetNote
 import com.solodev.mindpad.feature_note.domain.usecase.GetNotes
 import com.solodev.mindpad.feature_note.domain.usecase.NotesUseCases
 import dagger.Module
@@ -41,7 +42,8 @@ object AppModule {
         return NotesUseCases(
             getNotes = GetNotes(repository = repository),
             deleteNote = DeleteNote(repository = repository),
-            addNote =  AddNote(repository = repository)
+            addNote =  AddNote(repository = repository),
+            getNote = GetNote(repository = repository)
         )
     }
 }
