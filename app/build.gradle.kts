@@ -92,6 +92,8 @@ dependencies {
     //Hilt
     implementation(libs.androidx.hilt.compose.navigation)
     implementation(libs.hilt)
+    testImplementation(libs.junit.junit)
+    testImplementation(libs.junit.junit)
     ksp(libs.hilt.compiler)
 
     //Room
@@ -99,11 +101,28 @@ dependencies {
     ksp (libs.androidx.room.compiler)
     implementation (libs.androidx.room.ktx)
 
+    // Local unit tests
     testImplementation(libs.junit)
+    testImplementation (libs.androidx.core.testing)
+    testImplementation (libs.kotlinx.coroutines.test)
+    testImplementation (libs.truth)
+    testImplementation (libs.mockwebserver)
+    testImplementation (libs.mockk)
+    debugImplementation(libs.androidx.ui.test.manifest)
+
+    // Instrumentation tests
+    androidTestImplementation(libs.hilt.android.testing)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
     androidTestImplementation(platform(libs.androidx.compose.bom))
     androidTestImplementation(libs.androidx.ui.test.junit4)
     debugImplementation(libs.androidx.ui.tooling)
-    debugImplementation(libs.androidx.ui.test.manifest)
+
+    androidTestImplementation (libs.kotlinx.coroutines.test)
+    androidTestImplementation (libs.androidx.core.testing)
+    androidTestImplementation (libs.truth)
+    androidTestImplementation (libs.core.ktx)
+    androidTestImplementation (libs.mockwebserver)
+    androidTestImplementation (libs.mockk.android)
+    androidTestImplementation (libs.androidx.runner)
 }
