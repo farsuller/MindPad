@@ -34,12 +34,15 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.toArgb
+import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
 import com.solodev.mindpad.feature_note.domain.model.Note
 import com.solodev.mindpad.feature_note.presentation.screens.add_edit_note.components.TransparentTextField
-import com.solodev.mindpad.feature_note.presentation.screens.common.MindPadFAB
+import com.solodev.mindpad.feature_note.presentation.screens.components.MindPadFab
+import com.solodev.mindpad.utils.Constants.TestTags.CONTENT_TEXT_FIELD
+import com.solodev.mindpad.utils.Constants.TestTags.TITLE_TEXT_FIELD
 import kotlinx.coroutines.launch
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -48,7 +51,7 @@ fun AddEditNoteScreen(
     navController: NavController,
     noteColor: Int,
     viewModel: AddEditNoteViewModel = hiltViewModel(),
-    onBackPressed: () -> Unit,
+    onBackPressed: () -> Unit = {},
 ) {
     val noteTitleState = viewModel.noteTitle.value
     val noteContentState = viewModel.noteContent.value
@@ -84,7 +87,8 @@ fun AddEditNoteScreen(
     Scaffold(
         snackbarHost = { SnackbarHost(hostState = snackBarHostState) },
         floatingActionButton = {
-            MindPadFAB(
+            MindPadFab(
+                modifier = Modifier.testTag("Save"),
                 onClick = {
                     viewModel.onEvent(AddEditNoteEvent.SaveNote)
                 },
@@ -155,11 +159,13 @@ fun AddEditNoteScreen(
                     },
                     isHintVisible = noteTitleState.isHintVisible,
                     singleLine = true,
-                    textStyle = MaterialTheme.typography.headlineMedium
+                    textStyle = MaterialTheme.typography.headlineMedium,
+                    testTag = TITLE_TEXT_FIELD
                 )
 
                 TransparentTextField(
-                    modifier = Modifier.fillMaxHeight(),
+                    modifier = Modifier
+                        .fillMaxHeight(),
                     text = noteContentState.text,
                     hint = noteContentState.hint,
                     onValueChange = {
@@ -169,7 +175,8 @@ fun AddEditNoteScreen(
                         viewModel.onEvent(AddEditNoteEvent.ChangeContentFocus(it))
                     },
                     isHintVisible = noteContentState.isHintVisible,
-                    textStyle = MaterialTheme.typography.bodyMedium
+                    textStyle = MaterialTheme.typography.bodyMedium,
+                    testTag = CONTENT_TEXT_FIELD
                 )
             }
 

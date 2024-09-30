@@ -32,22 +32,24 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
 import com.solodev.mindpad.feature_note.presentation.routes.Screen
-import com.solodev.mindpad.feature_note.presentation.screens.common.MindPadFAB
+import com.solodev.mindpad.feature_note.presentation.screens.components.MindPadFab
 import com.solodev.mindpad.feature_note.presentation.screens.note.components.NoteItem
-import com.solodev.mindpad.feature_note.presentation.screens.note.components.OrderSection
+import com.solodev.mindpad.feature_note.presentation.screens.note.components.OrderSectionCard
+import com.solodev.mindpad.utils.Constants.TestTags.ORDER_SECTION_CARD
 import com.solodev.mindpad.utils.clickableWithoutRipple
 import kotlinx.coroutines.launch
 
 @Composable
 fun NotesScreen(
     navController: NavController,
-    viewModel: NotesViewModel = hiltViewModel()
 ) {
 
+    val viewModel: NotesViewModel = hiltViewModel()
     val state = viewModel.state.value
     val scope = rememberCoroutineScope()
     val snackBarHostState = remember {
@@ -57,7 +59,8 @@ fun NotesScreen(
     Scaffold(
         snackbarHost = { SnackbarHost(hostState = snackBarHostState) },
         floatingActionButton = {
-            MindPadFAB(
+            MindPadFab(
+                modifier = Modifier.testTag("Add"),
                 onClick = {
                     navController.navigate(Screen.AddEditNoteScreen.route)
                 },
@@ -102,10 +105,11 @@ fun NotesScreen(
                 enter = fadeIn() + slideInVertically(),
                 exit = fadeOut() + slideOutVertically()
             ) {
-                OrderSection(
+                OrderSectionCard(
                     modifier = Modifier
                         .fillMaxWidth()
-                        .padding(vertical = 8.dp),
+                        .padding(vertical = 8.dp)
+                        .testTag(ORDER_SECTION_CARD),
                     noteOrder = state.noteOrder,
                     onOrderChange = { noteOrder ->
                         viewModel.onEvent(NotesEvent.Order(noteOrder))

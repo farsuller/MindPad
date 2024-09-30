@@ -15,7 +15,7 @@ import com.solodev.mindpad.feature_note.domain.util.OrderType
 import com.solodev.mindpad.ui.theme.MindPadTheme
 
 @Composable
-fun OrderSection(
+fun OrderSectionCard(
     modifier: Modifier = Modifier,
     noteOrder: NoteOrder = NoteOrder.Date(OrderType.Descending),
     onOrderChange: (NoteOrder) -> Unit
@@ -76,7 +76,7 @@ fun OrderSectionPreview(){
 
     MindPadTheme {
         Surface {
-            OrderSection(
+            OrderSectionCard(
                 onOrderChange = {}
             )
         }

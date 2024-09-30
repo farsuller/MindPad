@@ -18,7 +18,7 @@ android {
         versionCode = 1
         versionName = "1.0"
 
-        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner = "com.solodev.mindpad.HiltTestRunner"
         vectorDrawables {
             useSupportLibrary = true
         }
@@ -92,8 +92,6 @@ dependencies {
     //Hilt
     implementation(libs.androidx.hilt.compose.navigation)
     implementation(libs.hilt)
-    testImplementation(libs.junit.junit)
-    testImplementation(libs.junit.junit)
     ksp(libs.hilt.compiler)
 
     //Room
@@ -125,4 +123,5 @@ dependencies {
     androidTestImplementation (libs.mockwebserver)
     androidTestImplementation (libs.mockk.android)
     androidTestImplementation (libs.androidx.runner)
+    androidTestImplementation (libs.dexmaker.mockito)
 }

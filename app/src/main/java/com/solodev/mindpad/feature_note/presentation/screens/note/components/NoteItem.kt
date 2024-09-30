@@ -22,6 +22,7 @@ import androidx.compose.ui.geometry.Size
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.Path
 import androidx.compose.ui.graphics.drawscope.clipPath
+import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Dp
@@ -29,6 +30,7 @@ import androidx.compose.ui.unit.dp
 import androidx.core.graphics.ColorUtils
 import com.solodev.mindpad.feature_note.domain.model.Note
 import com.solodev.mindpad.ui.theme.MindPadTheme
+import com.solodev.mindpad.utils.Constants.TestTags.NOTE_ITEM
 import com.solodev.mindpad.utils.clickableWithoutRipple
 
 @Composable
@@ -40,7 +42,7 @@ fun NoteItem(
     onDeleteClick: () -> Unit
 ) {
     Box(
-        modifier = modifier,
+        modifier = modifier.testTag(NOTE_ITEM),
     ) {
         Canvas(
             modifier = Modifier.matchParentSize(),
